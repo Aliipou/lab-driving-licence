@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Laboratory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('/api/placeholder/1200/400');
+            background-size: cover;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav {
+            background: #1a5f7a;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #1a5f7a;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #1a5f7a;
+            padding-bottom: 10px;
+        }
+
+        .chemical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .chemical-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            background: #f8f9fa;
+        }
+
+        .chemical-card h3 {
+            color: #1a5f7a;
+            margin-bottom: 10px;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .time-slot {
+            background: #dc3545;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .time-slot.available {
+            background: #28a745;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .danger {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: #1a5f7a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .equipment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .equipment-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .safety-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .safety-list li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Chemistry Laboratory</h1>
+        <p>Advanced Chemical Analysis and Research Facility</p>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="#scheduling">Scheduling</a></li>
+            <li><a href="#equipment">Equipment</a></li>
+            <li><a href="#safety">Safety</a></li>
+            <li><a href="#chemicals">Chemicals</a></li>
+            <li><a href="#emergency">Emergency</a></li>
+        </ul>
+    </nav>
+
+    <section id="scheduling" class="section">
+        <div class="card">
+            <h2>Lab Scheduling</h2>
+            <p>Available time slots for chemical experiments:</p>
+            <div class="schedule-grid">
+                <div class="time-slot available">Monday 9:00 AM - Lab A</div>
+                <div class="time-slot">Monday 2:00 PM - Lab B</div>
+                <div class="time-slot available">Tuesday 10:00 AM - Lab A</div>
+                <div class="time-slot available">Wednesday 1:00 PM - Lab C</div>
+                <div class="time-slot">Thursday 11:00 AM - Lab B</div>
+                <div class="time-slot available">Friday 9:00 AM - Lab A</div>
+            </div>
+            <button class="btn" style="margin-top: 20px;">Reserve Lab Time</button>
+        </div>
+    </section>
+
+    <section id="equipment" class="section">
+        <div class="card">
+            <h2>Laboratory Equipment</h2>
+            <div class="equipment-list">
+                <div class="equipment-item">
+                    <h3>Spectrophotometer</h3>
+                    <p>Model: UV-1800</p>
+                    <p>Range: 190-1100 nm</p>
+                    <button class="btn">View Manual</button>
+                </div>
+                <div class="equipment-item">
+                    <h3>pH Meter</h3>
+                    <p>Model: PH700</p>
+                    <p>Accuracy: ±0.01 pH</p>
+                    <button class="btn">View Manual</button>
+                </div>
+                <div class="equipment-item">
+                    <h3>Analytical Balance</h3>
+                    <p>Model: AB204</p>
+                    <p>Precision: 0.0001g</p>
+                    <button class="btn">View Manual</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="safety" class="section">
+        <div class="card">
+            <h2>Safety Guidelines</h2>
+            <div class="warning">
+                <h3>Required Safety Equipment</h3>
+                <ul class="safety-list">
+                    <li>Safety goggles must be worn at all times</li>
+                    <li>Laboratory coat required for all experiments</li>
+                    <li>Chemical-resistant gloves when handling substances</li>
+                    <li>Closed-toe shoes required in lab area</li>
+                </ul>
+            </div>
+            
+            <div class="danger" style="margin-top: 20px;">
+                <h3>Critical Safety Rules</h3>
+                <ul class="safety-list">
+                    <li>No eating or drinking in the laboratory</li>
+                    <li>No unauthorized experiments</li>
+                    <li>Report all spills immediately</li>
+                    <li>Know location of emergency shower and eyewash</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="chemicals" class="section">
+        <div class="card">
+            <h2>Chemical Inventory & Handling</h2>
+            <div class="chemical-grid">
+                <div class="chemical-card">
+                    <h3>Acids</h3>
+                    <p>Storage Location: Cabinet A1</p>
+                    <p>Handling: Use acid-resistant gloves</p>
+                    <p>Disposal: Neutralization required</p>
+                </div>
+                <div class="chemical-card">
+                    <h3>Bases</h3>
+                    <p>Storage Location: Cabinet B2</p>
+                    <p>Handling: Chemical-resistant gloves</p>
+                    <p>Disposal: Neutralization required</p>
+                </div>
+                <div class="chemical-card">
+                    <h3>Organic Solvents</h3>
+                    <p>Storage Location: Cabinet C3</p>
+                    <p>Handling: Use fume hood only</p>
+                    <p>Disposal: Organic waste container</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="emergency" class="section">
+        <div class="card">
+            <h2>Emergency Procedures</h2>
+            <div class="danger">
+                <h3>Emergency Contacts</h3>
+                <p>Lab Supervisor: 555-0123</p>
+                <p>Emergency Response: 911</p>
+                <p>Chemical Spill Team: 555-0199</p>
+            </div>
+            
+            <div class="warning" style="margin-top: 20px;">
+                <h3>Emergency Response Steps</h3>
+                <ol>
+                    <li>Stop all activities immediately</li>
+                    <li>Alert others in the area</li>
+                    <li>Contact lab supervisor</li>
+                    <li>If needed, evacuate following marked routes</li>
+                    <li>Meet at designated assembly point</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
