@@ -1,0 +1,476 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #FAFAFA;
+    color: #333;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close-sidebar-btn {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+.mobile-menu-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #EEEEEE;
+    cursor: pointer;
+}
+
+.mobile-menu-item:hover {
+    background-color: #F5F5F5;
+}
+
+/* Left sidebar */
+.left-sidebar {
+    width: 240px;
+    background-color: white;
+    border-right: 1px solid #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-section {
+    padding: 15px 20px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+}
+
+.menu-item svg {
+    margin-right: 10px;
+    color: #888;
+}
+
+.menu-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background-color: #EEEEEE;
+    margin: 10px 0;
+}
+
+.sidebar-title {
+    font-size: 14px;
+    color: #888;
+    margin: 15px 0 10px 20px;
+}
+
+.menu-item-selected {
+    position: relative;
+}
+
+.menu-item-checkmark {
+    position: absolute;
+    right: 0;
+    width: 18px;
+    height: 18px;
+    background-color: #E32F22;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Top navigation */
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #EEEEEE;
+    background-color: white;
+}
+
+.top-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-tab {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #888;
+    cursor: pointer;
+}
+
+.nav-tab:first-child {
+    padding-left: 0;
+}
+
+.centria-logo {
+    margin: 0 20px;
+    background-color: #E32F22;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 2px;
+    border: 1px solid #000;
+    font-size: 14px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 4px;
+    padding: 0 10px;
+    width: 200px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    padding: 8px;
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+}
+
+.search-icon {
+    color: #888;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Secondary navigation */
+.secondary-nav {
+    padding: 0 20px;
+    border-bottom: 1px solid #EEEEEE;
+    background-color: white;
+    display: flex;
+    overflow-x: auto;
+}
+
+.secondary-tab {
+    padding: 15px 0;
+    margin-right: 25px;
+    font-size: 14px;
+    color: #888;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+}
+
+.secondary-tab.active {
+    color: #333;
+    font-weight: 500;
+}
+
+.secondary-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #E32F22;
+}
+
+/* Cards grid */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 6px;
+    width: calc(33.33% - 14px);
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card-text {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+}
+
+.card-icon {
+    margin-top: 15px;
+    color: #555;
+}
+
+.badge-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5F5F5;
+    color: #888;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-top: 10px;
+}
+
+/* Right sidebar */
+.right-sidebar {
+    width: 280px;
+    background-color: white;
+    border-left: 1px solid #EEEEEE;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.sidebar-right-header {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.notification-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.notification-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #F5F5F5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.notification-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.sidebar-right-section {
+    margin: 20px 0;
+}
+
+.sidebar-right-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer a {
+    color: #888;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 992px) {
+    .right-sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .app {
+        flex-direction: column;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .left-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        transform: translateX(-100%);
+    }
+    
+    .left-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    
+    .close-sidebar-btn {
+        display: block;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    
+    .card {
+        width: 100%;
+    }
+    
+    .search-box {
+        width: 150px;
+    }
+    
+    .secondary-tab {
+        margin-right: 15px;
+    }
+    
+    .right-sidebar.mobile-hidden {
+        display: none;
+    }
+    
+    .centria-logo {
+        margin: 0 10px;
+    }
+    
+    .icon-button:not(.user-menu) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-box {
+        display: none;
+    }
+    
+    .secondary-nav {
+        padding: 0 10px;
+    }
+    
+    .cards-container {
+        padding: 10px;
+    }
+    
+    .footer {
+        gap: 10px;
+    }
+}
